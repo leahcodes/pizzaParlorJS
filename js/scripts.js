@@ -6,11 +6,11 @@ function Topping(topping) {
   this.topping = topping;
 }
 
-// function Order(customerName, numberOfPizzas, price) {
-//   this.customerName = customerName;
-//   this.numberOfPizzas = numberOfPizzas;
-//   this.price = price;
-// }
+function Order(customerName, numberOfPizzas) {
+  this.customerName = customerName;
+  this.numberOfPizzas = numberOfPizzas;
+  this.price = null;
+}
 //
 // function resetFields() {
 //   $("input#   ").val("");

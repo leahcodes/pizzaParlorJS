@@ -11,3 +11,11 @@ describe('Topping', function() {
     expect(testTopping.topping).to.equal("Pineapple");
   });
 });
+
+describe('Order', function() {
+  it("creates an order for the customer", function () {
+    var testOrder = new Order("Leah", 2);
+    expect(testOrder.customerName).to.equal("Leah");
+    expect(testOrder.numberOfPizzas).to.equal(2);
+  });
+});
