@@ -1,0 +1,8 @@
+.container {
+  width: 50%;
+  text-align: center;
+}
+
+.glyphicon, .glyphicon-globe {
+  font-size: .8em;
+}
