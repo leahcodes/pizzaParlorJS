@@ -102,9 +102,17 @@ $(document).ready(function() {
       // var newTopping = new Topping(topping);
       newOrder.toppings.push($(this).val());
     });
+
     newOrder.cost = newOrder.price();
-    debugger;
+
+    $("#customer-name").text(newOrder.customerName);
+    $("#pizza-size").text(newOrder.pizzaSize);
+    $("#toppings").text(newOrder.allToppings);
+    $("#number-of-pizzas").text(newOrder.numberOfPizzas);
+    $("#order-price").text(newOrder.price);
+
+    $("form#build-order").hide();
+    $(".receipt").show();
 
   });
-
 });
