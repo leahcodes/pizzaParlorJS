@@ -6,9 +6,10 @@ describe('Order', function() {
     expect(testOrder.numberOfPizzas).to.equal(3);
   });
 
-  it("adjusts price of order based on order information", function () {
-    
-  })
+  it("adjusts price of order based on size and quantity", function () {
+    var testOrder = new Order("Leah", "Large", 2);
+    expect(testOrder.price()).to.equal(36);
+  });
 });
 
 
