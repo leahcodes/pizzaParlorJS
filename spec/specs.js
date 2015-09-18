@@ -3,6 +3,11 @@ describe('Pizza', function() {
     var testPizza = new Pizza("Medium");
     expect(testPizza.size).to.equal("Medium");
   });
+
+  it("adjusts the cost of the pizza based on the users size selection", function() {
+    var testPizza = new Pizza("Large");
+    expect(testPizza.priceAdjusted()).to.equal(18);
+  });
 });
 
 describe('Topping', function() {

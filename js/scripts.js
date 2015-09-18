@@ -4,9 +4,29 @@ function Pizza(size, cost) {
   // this.toppings = [];
 }
 
-function Topping(topping) {
-  this.topping = topping;
+Pizza.prototype.priceAdjusted = function() {
+  if (this.size === "Medium") {
+    this.cost += 4;
+  }
+
+  if (this.size === "Large") {
+    this.cost += 8;
+  }
+
+  if (this.size === "Planetoidal") {
+    this.cost += 37000000;
+  }
+
+  return this.cost;
 }
+
+// function Topping(topping) {
+//
+// }
+//
+// Topping.prototype.addTopping = function() {
+//
+// }
 
 function Order(customerName, numberOfPizzas) {
   this.customerName = customerName;
@@ -36,5 +56,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     var size = $("input#size-dropdown option:selected").val();
+
   });
 });
