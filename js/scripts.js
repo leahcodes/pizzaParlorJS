@@ -30,31 +30,6 @@ Order.prototype.price = function() {
   return this.cost;
 }
 
-//// COULDN'T GET THIS TO WORK... ////
-// Order.prototype.listToppings = function() {
-//   this.toppings.each(function(topping) {
-//     return "<li>" + topping + "</li>";
-//   });
-// }
-
-
-
-function resetFields() {
-  $("select#size-dropdown").val("");
-  $("input#topping1").val("");
-  $("input#topping2").val("");
-  $("input#topping3").val("");
-  $("input#topping4").val("");
-  $("input#topping5").val("");
-  $("input#topping6").val("");
-  $("input#topping7").val("");
-  $("input#topping8").val("");
-  $("input#topping9").val("");
-  $("input#topping10").val("");
-  $("input#topping11").val("");
-  $("input#numberOfPizzas").val("");
-  $("input#customerName").val("");
-}
 
 $(document).ready(function() {
   $("form#build-order").submit(function() {
@@ -80,6 +55,11 @@ $(document).ready(function() {
 
     $("form#build-order").hide();
     $(".receipt").show();
-
+    $("form#build-order").trigger("reset");
   });
+
+  $("#back-to-order-form").click(function() {
+    $(".receipt").hide();
+    $("form#build-order").show();
+  })
 });

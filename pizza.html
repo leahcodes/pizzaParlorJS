@@ -4,11 +4,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Out of this World Pizza</title>
+    <title>Out of this World Pizza Pies</title>
   </head>
   <body>
     <div class="container">
-      <h1><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>ut <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>f This W<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>rld Pies</h1>
+      <h1 id="header-big"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>ut <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>f This W<span class="glyphicon glyphicon-globe smaller" aria-hidden="true"></span>rld</h1>
+      <h2>Pizza Pies</h2>
       <hr>
       <form class="form-group" id="build-order">
         <h3>Select Pie Size</h3>
@@ -16,7 +17,7 @@
           <option value="Small">Small (10") - $10</option>
           <option value="Medium">Medium (14") - $14</option>
           <option value="Large">Large (18") - $18</option>
-          <option value="Planetoid">Planetoidal (~ 37,192,320") - $37,000,000</option>
+          <option value="Planetoidal">Planetoidal (~ 37,192,320") - $37,000,000</option>
         </select>
         <hr>
         <h3>Select Toppings</h3>
@@ -56,10 +57,10 @@
         </div>
         <hr>
         <h3>How many of these pies would you like?</h3>
-        <input id="number-of-pizzas" class="form-control" type="number">
+        <input id="number-of-pizzas" class="form-control" type="number" required="true">
         <hr>
         <h3>Your Name:</h3>
-        <input id="customerName" type="text" class="form-control">
+        <input id="customerName" type="text" class="form-control" required="true">
         <br>
         <button type="submit" class="btn btn-danger btn-lg">Place Order</button>
       </form>
@@ -68,13 +69,14 @@
         <h2>Thank you for your order, <span id="customer-name-receipt"></span>!</h3>
         <h3>Order details:</h3>
         <h4>Size: <span id="pizza-size-receipt"></span></h4>
-        <h4>Toppings: <ul id="toppings-receipt"></ul></h4>
+        <h4>Toppings: <span id="toppings-receipt"></span></h4>
         <h4>Number of Pies: <span id="number-of-pizzas-receipt"></span></h4>
         <h3>Due: $<span id="order-cost-receipt"></span></h3>
         <hr>
-        <h4>For pizzas size small, medium, or large, your order should be ready within half an hour.</h4> <h4>For planetoidal size pies, we should have your pie ready within 2-3 years.</h4>
+        <h4>For small, medium, or large pies your order should be ready within half an hour.</h4> <h4>For planetoidal pies, we should have your pie ready within 2-3 years.</h4>
         <h3>See you soon!</h3>
-        <span class="btn btn-lg btn-warning">Place another order</span>
+        <br>
+        <span id="back-to-order-form" class="btn btn-lg btn-warning">Place another order</span>
     </div>
   </body>
 </html>
