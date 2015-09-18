@@ -6,7 +6,7 @@ describe('Pizza', function() {
 
   it("adjusts the cost of the pizza based on the users size selection", function() {
     var testPizza = new Pizza("Large");
-    expect(testPizza.priceAdjusted()).to.equal(18);
+    expect(testPizza.priceAdjustedBySize()).to.equal(18);
   });
 });
 

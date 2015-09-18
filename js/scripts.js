@@ -1,38 +1,74 @@
-function Pizza(size, cost) {
-  this.size = size;
+function Order(customerName, pizzaSize, numberOfPizzas, cost) {
+  this.customerName = customerName;
+  this.pizzaSize = pizzaSize;
+  this.numberOfPizzas = numberOfPizzas;
   this.cost = 10;
-  // this.toppings = [];
+  this.toppings = [];
 }
 
-Pizza.prototype.priceAdjusted = function() {
-  if (this.size === "Medium") {
-    this.cost += 4;
+Order.prototype.price = function() {
+  if (this.pizzaSize === "Medium") {
+      this.cost += 4;
   }
 
-  if (this.size === "Large") {
+  if (this.pizzaSize === "Large") {
     this.cost += 8;
   }
 
-  if (this.size === "Planetoidal") {
+  if (this.pizzaSize === "Planetoidal") {
     this.cost += 37000000;
+  }
+
+  if (this.toppings.length > 2) {
+    this.cost += (this.toppings.length - 2);
+  }
+
+  if (this.numberOfPizzas > 1) {
+    this.cost = (this.cost * this.numberOfPizzas);
   }
 
   return this.cost;
 }
 
 // function Topping(topping) {
-//
-// }
-//
-// Topping.prototype.addTopping = function() {
-//
+//   this.topping = topping;
 // }
 
-function Order(customerName, numberOfPizzas) {
-  this.customerName = customerName;
-  this.numberOfPizzas = numberOfPizzas;
-  this.price = null;
-}
+Order.prototype.allToppings = function() {
+  this.toppings.forEach(function(topping) {
+    return "<li>" + topping + "</li>";
+  });
+};
+
+// function Pizza(size, cost) {
+//   this.size = size;
+//   this.cost = 10;
+//   this.toppings = [];
+// }
+//
+// Pizza.prototype.priceAdjustedBySize = function() {
+//   if (this.size === "Medium") {
+//     this.cost += 4;
+//   }
+//
+//   if (this.size === "Large") {
+//     this.cost += 8;
+//   }
+//
+//   if (this.size === "Planetoidal") {
+//     this.cost += 37000000;
+//   }
+//
+//   return this.cost;
+// }
+//
+
+
+// function Order(customerName, numberOfPizzas) {
+//   this.customerName = customerName;
+//   this.numberOfPizzas = numberOfPizzas;
+//   this.price = null;
+// }
 
 function resetFields() {
   $("select#size-dropdown").val("");
@@ -55,7 +91,20 @@ $(document).ready(function() {
   $("form#build-order").submit(function() {
     event.preventDefault();
 
-    var size = $("input#size-dropdown option:selected").val();
+    var customerName = $("input#customerName").val();
+    var pizzaSize = $(this).find('#size-dropdown option:selected').val();
+    var numberOfPizzas = parseInt($(this).find('#number-of-pizzas').val());
+
+    var newOrder = new Order(customerName, pizzaSize, numberOfPizzas);
+
+    $(".checkbox input:checkbox:checked").map(function() {
+      // var topping = $(this).val();
+      // var newTopping = new Topping(topping);
+      newOrder.toppings.push($(this).val());
+    });
+    newOrder.cost = newOrder.price();
+    debugger;
 
   });
+
 });
