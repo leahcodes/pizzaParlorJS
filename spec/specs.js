@@ -1,3 +1,5 @@
+// function Order(customerName, pizzaSize, numberOfPizzas, cost, toppings)
+
 describe('Order', function() {
   it("gathers order information", function () {
     var testOrder = new Order("Leah", "Medium", 3);
@@ -10,6 +12,18 @@ describe('Order', function() {
     var testOrder = new Order("Leah", "Large", 2);
     expect(testOrder.price()).to.equal(36);
   });
+
+  it("determines the toppings the customer wants", function () {
+    var testOrder = new Order("Leah", "Medium", 2, null, []);
+      testOrder.toppings.push("Pepperoni", "Canadian Bacon", "Mushrooms", "Space Dust");
+    expect(testOrder.toppings).to.eql(["Pepperoni", "Canadian Bacon", "Mushrooms", "Space Dust"]);
+  });
+
+  it("returns as a list the toppings", function() {
+    var testOrder = new Order("Leah", "Medium", 2, null, []);
+      testOrder.toppings.push("Pepperoni", "Canadian Bacon", "Mushrooms", "Space Dust");
+      expect(testOrder.listToppings).to.equal("Pepperoni, Canadian Bacon, Mushrooms, Space Dust");
+  })
 });
 
 

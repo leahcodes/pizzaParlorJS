@@ -1,4 +1,4 @@
-function Order(customerName, pizzaSize, numberOfPizzas, cost) {
+function Order(customerName, pizzaSize, numberOfPizzas, cost, toppings) {
   this.customerName = customerName;
   this.pizzaSize = pizzaSize;
   this.numberOfPizzas = numberOfPizzas;
@@ -30,45 +30,14 @@ Order.prototype.price = function() {
   return this.cost;
 }
 
-// function Topping(topping) {
-//   this.topping = topping;
+//// COULDN'T GET THIS TO WORK... ////
+// Order.prototype.listToppings = function() {
+//   this.toppings.each(function(topping) {
+//     return "<li>" + topping + "</li>";
+//   });
 // }
 
-Order.prototype.allToppings = function() {
-  this.toppings.forEach(function(topping) {
-    return "<li>" + topping + "</li>";
-  });
-};
 
-// function Pizza(size, cost) {
-//   this.size = size;
-//   this.cost = 10;
-//   this.toppings = [];
-// }
-//
-// Pizza.prototype.priceAdjustedBySize = function() {
-//   if (this.size === "Medium") {
-//     this.cost += 4;
-//   }
-//
-//   if (this.size === "Large") {
-//     this.cost += 8;
-//   }
-//
-//   if (this.size === "Planetoidal") {
-//     this.cost += 37000000;
-//   }
-//
-//   return this.cost;
-// }
-//
-
-
-// function Order(customerName, numberOfPizzas) {
-//   this.customerName = customerName;
-//   this.numberOfPizzas = numberOfPizzas;
-//   this.price = null;
-// }
 
 function resetFields() {
   $("select#size-dropdown").val("");
@@ -98,18 +67,16 @@ $(document).ready(function() {
     var newOrder = new Order(customerName, pizzaSize, numberOfPizzas);
 
     $(".checkbox input:checkbox:checked").map(function() {
-      // var topping = $(this).val();
-      // var newTopping = new Topping(topping);
       newOrder.toppings.push($(this).val());
     });
 
     newOrder.cost = newOrder.price();
 
-    $("#customer-name").text(newOrder.customerName);
-    $("#pizza-size").text(newOrder.pizzaSize);
-    $("#toppings").text(newOrder.allToppings);
-    $("#number-of-pizzas").text(newOrder.numberOfPizzas);
-    $("#order-price").text(newOrder.price);
+    $("#customer-name-receipt").text(newOrder.customerName);
+    $("#pizza-size-receipt").text(newOrder.pizzaSize);
+    $("#number-of-pizzas-receipt").text(newOrder.numberOfPizzas);
+    $("#order-cost-receipt").text(newOrder.cost);
+    $("#toppings-receipt").text(newOrder.toppings.join(", "));
 
     $("form#build-order").hide();
     $(".receipt").show();
