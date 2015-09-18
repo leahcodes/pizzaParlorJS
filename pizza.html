@@ -22,37 +22,37 @@
         <h3>Select Toppings</h3>
         <p><strong>(first two free, $1 each additional)</strong></p>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Pineapple</label>
+          <label><input id="topping1" type="checkbox" value="1">Pineapple</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Sausage</label>
+          <label><input id="topping2" type="checkbox" value="1">Sausage</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Canadian Bacon</label>
+          <label><input id="topping3" type="checkbox" value="1">Canadian Bacon</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Pepperoni</label>
+          <label><input id="topping4" type="checkbox" value="1">Pepperoni</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Onions</label>
+          <label><input id="topping5" type="checkbox" value="1">Onions</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Mushrooms</label>
+          <label><input id="topping6" type="checkbox" value="1">Mushrooms</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Bell Peppers</label>
+          <label><input id="topping7" type="checkbox" value="1">Bell Peppers</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Artichoke Hearts</label>
+          <label><input id="topping8" type="checkbox" value="1">Artichoke Hearts</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Anchovies</label>
+          <label><input id="topping9" type="checkbox" value="1">Anchovies</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Olives</label>
+          <label><input id="topping10" type="checkbox" value="1">Olives</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="1">Space Dust</label>
+          <label><input id="topping11" type="checkbox" value="1">Space Dust</label>
         </div>
         <hr>
         <h3>How many of these pies would you like?</h3>
@@ -63,6 +63,17 @@
         <br>
         <button type="submit" class="btn btn-danger btn-lg">Place Order</button>
       </form>
+
+      <div class="receipt">
+        <h2>Thank you for your order, <span id="customer-name"></span>!</h3>
+        <h3>Order details:</h3>
+        <h4>Size: <span id="pizza-size"></span></h4>
+        <h4>Toppings: <ul id="toppings"></ul></h4>
+        <h4>Number of Pies: <span id="number-of-pizzas"></span></h4>
+        <h3>Due: $<span id="order-price"></span></h3>
+        <hr>
+        <h4>For pizzas size small, medium, or large, your order should be ready within half an hour.</h4> <h4>For planetoidal size pies, we should have your pie ready within 2-3 years.</h4>
+        <h3>See you soon!</h3>
     </div>
   </body>
 </html>

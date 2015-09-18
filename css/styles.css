@@ -6,3 +6,12 @@
 .glyphicon, .glyphicon-globe {
   font-size: .8em;
 }
+
+.receipt {
+  /*display: none;*/
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+
+}
