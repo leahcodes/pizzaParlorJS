@@ -1,5 +1,3 @@
-// function Order(customerName, pizzaSize, numberOfPizzas, cost, toppings)
-
 describe('Order', function() {
   it("gathers order information", function() {
     var testOrder = new Order("Leah", "Medium", 3);
